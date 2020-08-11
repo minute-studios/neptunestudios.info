@@ -1,0 +1,41 @@
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  z-index: 100;
+}
+.loading-screen:before,
+.loading-screen:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.loading-screen:before {
+  margin-left: -80px;
+  margin-top: -160px;
+  width: 160px;
+  height: 160px;
+  background: url(/public/earth.jpg) no-repeat center center;
+  background-size: contain;
+  -webkit-transform-origin: 50% 60%;
+      -ms-transform-origin: 50% 60%;
+          transform-origin: 50% 60%;
+  -webkit-animation: spin 4s linear infinite;
+          animation: spin 4s linear infinite;
+}
