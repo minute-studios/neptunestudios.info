@@ -2,8 +2,9 @@
 .app
   .top-nav
     .banner
-      Parallax(:speed-factor="0.45", :section-height="20", container-class="banner-container", section-class="banner-section")
-        .banner-img
+      h1.banner-title.heading.is-size-1 Neptune Studios LLC
+      //- Parallax(:speed-factor="0.45", :section-height="20", container-class="banner-container", section-class="banner-section")
+      //-   .banner-img
     .nav-section
       .container
         slot(name="header")
@@ -71,6 +72,10 @@ $navBackground: #333
       z-index: 1
       @media screen and (min-width: 768px)
         // min-height: 100vh
+    .banner-title
+      color: $white-ter
+      text-align: center
+      margin-top: 2em
     .banner-container
       position: relative
       will-change: transform

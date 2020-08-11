@@ -1,4 +1,3 @@
-permalink: /:year-:month-:day/:title
 markdown: kramdown
 permalink: pretty
 include: ["_pages"]
@@ -15,44 +14,22 @@ collections:
   pages:
     output: true
     permalink: /:path/
-  team_members:
-    output: false
-    sort_by: name
 
-title : MinuteEarth
-url : //minuteearth.com
+title : Neptune Studios LLC
+url : //neptunestudios.info
 theme_colour: "#333"
-description : "Science and stories about our awesome planet!"
+description : "Home of MinutePhysics, MinuteEarth, and MinuteLabs"
 
 social :
-  email : minuteearth@gmail.com
-  twitter : https://twitter.com/minuteearth
-  patreon: https://www.patreon.com/minuteearth
-  facebook: https://www.facebook.com/minuteearth
-  youtube: https://www.youtube.com/minuteearth
-  instagram: https://www.instagram.com/minute_earth
+  email : contact@neptunestudios.info
 
 limits :
   posts : nil
 
+# currently unused
 nav:
   - title: Home
     url: /
 
   - title: About
     url: /about
-
-  - title: FAQ
-    url: /faq
-
-  - title: Partners
-    url: /partners
-
-  - title: Patreon
-    url: https://www.patreon.com/minuteearth
-
-  - title: Merch
-    url: https://store.dftba.com/collections/minuteearth
-
-  - title: YouTube
-    url: https://www.youtube.com/minuteearth
