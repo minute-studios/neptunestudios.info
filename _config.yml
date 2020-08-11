@@ -1,0 +1,58 @@
+permalink: /:year-:month-:day/:title
+markdown: kramdown
+permalink: pretty
+include: ["_pages"]
+exclude:
+  - "README.md"
+  - "CNAME"
+  - "LICENSE"
+  - "package.json"
+  - "node_modules"
+  - "src"
+  - "vendor" #jekyll travis
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+  team_members:
+    output: false
+    sort_by: name
+
+title : MinuteEarth
+url : //minuteearth.com
+theme_colour: "#333"
+description : "Science and stories about our awesome planet!"
+
+social :
+  email : minuteearth@gmail.com
+  twitter : https://twitter.com/minuteearth
+  patreon: https://www.patreon.com/minuteearth
+  facebook: https://www.facebook.com/minuteearth
+  youtube: https://www.youtube.com/minuteearth
+  instagram: https://www.instagram.com/minute_earth
+
+limits :
+  posts : nil
+
+nav:
+  - title: Home
+    url: /
+
+  - title: About
+    url: /about
+
+  - title: FAQ
+    url: /faq
+
+  - title: Partners
+    url: /partners
+
+  - title: Patreon
+    url: https://www.patreon.com/minuteearth
+
+  - title: Merch
+    url: https://store.dftba.com/collections/minuteearth
+
+  - title: YouTube
+    url: https://www.youtube.com/minuteearth

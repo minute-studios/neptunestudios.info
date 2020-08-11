@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization" prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{page.title | escape}} | {{site.title | escape}}</title>
+
+    {% if page.description %}
+    <meta name="description" itemprop="description" content="{{ page.description | escape }}" />
+    {% elsif site.description %}
+    <meta name="description" itemprop="description" content="{{ site.description | escape }}">
+    {% endif %}
+
+    <!-- Google+ snippet info. -->
+    <meta itemprop="name" content="{{ page.title | escape }} | {{site.title | escape}}">
+    <meta itemprop="image" content="/public/twitter-banner.jpg">
+
+    <!-- <meta name="google-site-verification" content="" /> -->
+
+    <meta name="theme-color" content="{{ site.theme_colour }}">
+    <link rel="icon" sizes="32x32" href="/public/favicon.png">
+    <link rel="icon" sizes="64x64" href="/public/favicon-64.png">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta name="og:title" property="og:title" content="{{site.title | escape}}">
+    <meta name="description" content="{{ site.description | escape }}">
+    <meta property="og:image" content="/public/twitter-banner.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ site.description | escape }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="/public/twitter-banner.jpg">
+    <meta name="twitter:site" content="@minuteearth">
+    <meta name="twitter:creator" content="@minuteearth">
+
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/loader.css">
+
+  </head>
+  <body class="{% if page.section %}page-{{ page.section }}{% else %}page-default{% endif %}">
+    <app id="app">
+      <div class="loading-screen" v-if="!$el"></div>
+      <header slot="header">
+        <nav role="navigation">
+          <b-navbar>
+            <template slot="start">
+              {% capture ext %}{% if JEKYLL_ENV == 'development' %}'.html'{% endif %}{% endcapture %}
+              {% for nav in site.nav %}
+              {% capture id %}{{ nav.title | slugify }}{% endcapture %}
+              <b-navbar-item class="nav-{{ id }}{% if page.section == id %} is-active{% endif %}" href="{{ nav.url }}{{ ext }}">
+                <span>{{ nav.title }}</span>
+                {% if nav.url contains 'http' %}
+                &nbsp;
+                <b-icon icon="open-in-new" size="is-small" class="has-text-grey-light"></b-icon>
+                {% endif %}
+              </b-navbar-item>
+              {% endfor %}
+            </template>
+          </ml-nav>
+        </nav>
+      </header>
+
+      <section id="viewport">
+        {{content}}
+      </section>
+
+      <footer slot="footer">
+        <div class="columns">
+          <div class="column">
+            <div class="content has-text-centered">
+              <h2 class="heading">Support Us On Patreon!</h2>
+              <a href="{{ site.social.patreon }}" target="_blank" rel="noopener">
+                <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="200">
+              </a>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <h2 class="heading">Contact Us</h2>
+              <ul class="footer-contact">
+                <li class="email">
+                  <a href="mailto:{{ site.social.email }}" target="_blank" rel="noopener">
+                    <span class="icon">
+                      <i class="mdi mdi-email"></i>
+                    </span>
+                    Email
+                  </a>
+                </li>
+                <li class="youtube">
+                  <a href="{{ site.social.youtube }}" target="_blank" rel="noopener">
+                    <span class="icon">
+                      <i class="mdi mdi-youtube"></i>
+                    </span>
+                    YouTube Channel
+                  </a>
+                </li>
+                <li class="twitter">
+                  <a href="{{ site.social.twitter }}" target="_blank" rel="noopener">
+                    <span class="icon">
+                      <i class="mdi mdi-twitter"></i>
+                    </span>
+                    @minuteearth
+                  </a>
+                </li>
+                <li class="instagram">
+                  <a href="{{ site.social.instagram }}" target="_blank" rel="noopener">
+                    <span class="icon">
+                      <i class="mdi mdi-instagram"></i>
+                    </span>
+                    Instagram
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </app>
+
+    {% if JEKYLL_ENV != 'development' %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-34870341-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-34870341-6');
+    </script>
+    {% endif %}
+
+  <script type="text/javascript" src="/dist/app.js"></script>
+</body>
+</html>
